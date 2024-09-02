@@ -31,7 +31,7 @@ import com.example.reboot.ui.screens.WeatherViewModel
 
 
 @Composable
-fun WeatherApp() {
+fun WeatherApp(modifier: Modifier = Modifier) {
 
     Scaffold(
         modifier = Modifier.fillMaxSize(),
