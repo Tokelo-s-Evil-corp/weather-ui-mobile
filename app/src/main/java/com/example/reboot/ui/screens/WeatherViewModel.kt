@@ -24,6 +24,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.reboot.model.WeatherData
 
 
 import kotlinx.coroutines.launch
@@ -33,7 +34,7 @@ import retrofit2.HttpException
  * UI state for the Home screen
  */
 sealed interface WeatherUiState {
-    data class Success(val photos: String) : WeatherUiState
+    data class Success(val response: WeatherData) : WeatherUiState
     object Error : WeatherUiState
     object Loading : WeatherUiState
 }
@@ -59,9 +60,7 @@ class WeatherViewModel : ViewModel() {
             weatherUiState = WeatherUiState.Loading
             weatherUiState = try {
                 val data = WeatherApi.retrofitService.getPhotos()
-                WeatherUiState.Success(
-                    "Good $data elements"
-                )
+                WeatherUiState.Success(data)
             } catch (e: Exception) {
                 WeatherUiState.Error
             } catch (e: HttpException) {

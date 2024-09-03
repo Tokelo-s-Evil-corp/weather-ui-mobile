@@ -27,7 +27,7 @@ import retrofit2.Retrofit
 import retrofit2.http.GET
 
 private const val BASE_URL =
-    "https://1722-129-232-25-155.ngrok-free.app"
+    "https://d1d0-129-232-21-205.ngrok-free.app"
 
 /**
  * Use the Retrofit builder to build a retrofit object using a kotlinx.serialization converter
