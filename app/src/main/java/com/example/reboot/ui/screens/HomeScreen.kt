@@ -16,6 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.reboot.model.WeatherData
 import com.example.reboot.ui.components.Location
+import com.example.reboot.ui.components.PartialBottomSheet
 import com.example.reboot.ui.components.TemperatureCard
 
 
@@ -69,6 +70,7 @@ fun ResultScreen(data: WeatherData, modifier: Modifier = Modifier) {
     ) {
         Location()
         TemperatureCard(dataTemp = data.current.temperature_2m.toString(), units = data.current_units.temperature_2m)
+        PartialBottomSheet()
     }
 }
 
