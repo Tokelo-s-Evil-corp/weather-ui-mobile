@@ -9,12 +9,14 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.reboot.model.WeatherData
+import com.example.reboot.ui.components.CurrentWeather
 import com.example.reboot.ui.components.Location
 import com.example.reboot.ui.components.PartialBottomSheet
 import com.example.reboot.ui.components.TemperatureCard
@@ -65,12 +67,24 @@ fun ErrorScreen(modifier: Modifier = Modifier) {
 fun ResultScreen(data: WeatherData, modifier: Modifier = Modifier) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center,
-        modifier = modifier.fillMaxSize()
+        verticalArrangement = Arrangement.Top,
+        modifier = modifier
+            .fillMaxSize()
+            .padding(20.dp, 20.dp)
     ) {
         Location()
         TemperatureCard(dataTemp = data.current.temperature_2m.toString(), units = data.current_units.temperature_2m)
-        PartialBottomSheet()
+        CurrentWeather(
+            humidity = data.current.relative_humidity_2m.toString(),
+            humidityIcon = data.current.relative_humidity_2m.toString(),
+            windSpeed = data.current.wind_speed_10m.toString(),
+            windSpeedIcon = data.current.wind_speed_10m.toString(),
+            humidityUnit = data.current_units.relative_humidity_2m,
+            windSpeedUnit = data.current_units.wind_speed_10m,
+            humidityLabel = "Humidity",
+            windSpeedLabel = "Wind Speed"
+        )
+        PartialBottomSheet(data)
     }
 }
 

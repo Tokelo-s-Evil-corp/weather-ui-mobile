@@ -17,31 +17,27 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.reboot.model.WeatherData
 import com.example.reboot.ui.theme.RebootTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun PartialBottomSheet(){
+fun PartialBottomSheet(data: WeatherData){
     var showBottomSheet by remember { mutableStateOf(true) }
     val sheetState = rememberModalBottomSheetState(
         skipPartiallyExpanded = false,
     )
-            ModalBottomSheet(
+    ModalBottomSheet(
                 modifier = Modifier.fillMaxHeight(),
                 sheetState = sheetState,
                 onDismissRequest = {showBottomSheet = false}
             ) {
-                Text(text = "I am a Bottom Sheet",
-                    modifier = Modifier.padding(16.dp))
+                HourlyRow(
+                    time = data.hourly.temperature_2m,
+                    icon = data.hourly.temperature_2m,
+                    temperature = data.hourly.temperature_2m              )
 
             }
 
 }
 
-@Composable
-@Preview
-fun BottomSheetPreview(){
-    RebootTheme {
-        PartialBottomSheet()
-    }
-}

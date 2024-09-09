@@ -5,12 +5,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.sp
 import com.example.reboot.ui.theme.RebootTheme
 
 @Composable
 fun TemperatureCard (dataTemp: String, units: String, modifier: Modifier = Modifier){
     Column {
-        Text(text = "$dataTemp$units")
+        Text(text = "$dataTemp$units", fontSize = 60.sp)
     }
 }
 
