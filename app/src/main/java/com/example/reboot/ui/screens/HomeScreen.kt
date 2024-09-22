@@ -41,8 +41,16 @@ fun HomeScreen(
  * The home screen displaying the loading message.
  */
 @Composable
-fun LoadingScreen(modifier: Modifier = Modifier) {
-    Text(text = "Loading")
+fun LoadingScreen(
+    modifier : Modifier = Modifier,
+) {
+    Column(
+        modifier = modifier,
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text(text = "Loading")
+    }
 }
 
 /**

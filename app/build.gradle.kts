@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.reboot"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -51,6 +51,9 @@ android {
 }
 
 dependencies {
+    //YChart
+    implementation("co.yml:ycharts:2.1.0")
+
     // Retrofit
     implementation(libs.retrofit2.kotlinx.serialization.converter)
     implementation(libs.retrofit)
