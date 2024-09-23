@@ -38,23 +38,28 @@ fun PartialBottomSheet(data: WeatherData){
                 onDismissRequest = {showBottomSheet = false}
             ) {
                 LazyColumn(
-                    modifier = Modifier.fillMaxSize()
-                        .padding(0.dp,4.dp,0.dp,4.dp),
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(0.dp, 4.dp, 0.dp, 4.dp),
                     verticalArrangement = Arrangement.Top,
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    val space = 8.dp
+                    val space = 12.dp
                     item {
                         HourlyRow(
-                            time = data.hourly.temperature_2m,
-                            icon = data.hourly.temperature_2m,
-                            temperature = data.hourly.temperature_2m
+                            time = data.hourly.time,
+                            weatherCodes = data.hourly.weather_code,
+                            temperature = data.hourly.temperature_2m,
+                            tempUnit = data.hourly_units.temperature_2m
                         )
                         Spacer(modifier = Modifier.height(space))
                     }
 
                     item {
-                        TodayWindSpeedChart(timeList,windSpeedList)
+                        ChartSleeve(
+                            chart = { TodayWindSpeedChart(timeList,windSpeedList) },
+                            title = "Wind Speed ${data.hourly_units.wind_speed_10m}"
+                        )
                         Spacer(modifier = Modifier.height(space))
                     }
                 }

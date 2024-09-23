@@ -40,12 +40,11 @@ fun TodayWindSpeedChart(hourlyTimeList: List<LocalTime>, hourlyWindSpeed: List<D
         .backgroundColor(Color.Transparent)
         .steps(pointsData.size - 1)
         .labelData { i ->
-//            pointsData[i].x.toInt().toString()
             when(pointsData[i].x.toInt()){
                 in 0..9 ->  "0${pointsData[i].x.toInt()} h"
                 else -> {"${pointsData[i].x.toInt()} h"}
             }
-            }
+        }
         .labelAndAxisLinePadding(15.dp)
         .axisLineColor(MaterialTheme.colorScheme.tertiary)
         .axisLabelColor(MaterialTheme.colorScheme.tertiary)
@@ -99,7 +98,6 @@ fun TodayWindSpeedChart(hourlyTimeList: List<LocalTime>, hourlyWindSpeed: List<D
     )
 
     LineChart(modifier = Modifier
-        .fillMaxSize()
-        .height(300.dp),
+        .fillMaxSize(),
         lineChartData = lineChartData)
 }
