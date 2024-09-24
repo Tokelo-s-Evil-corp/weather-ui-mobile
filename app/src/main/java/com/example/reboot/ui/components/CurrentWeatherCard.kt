@@ -18,6 +18,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.reboot.R
+import com.example.reboot.ui.screens.ResultScreen
 
 @Composable
 fun CurrentWeather(
@@ -26,11 +27,11 @@ fun CurrentWeather(
     humidityUnit: String,
     windSpeedUnit: String,
     humidityLabel: String,
-    windSpeedLabel: String
+    windSpeedLabel: String,
 ){
     OutlinedCard(
         modifier = Modifier.size(380.dp,120.dp),
-        shape = RoundedCornerShape(80.dp)
+        shape = RoundedCornerShape(80.dp),
     ) {
         val windSpeedIconID = R.drawable.icons8_wind_96
         val humidityIconID = R.drawable.icons8_wet_96
