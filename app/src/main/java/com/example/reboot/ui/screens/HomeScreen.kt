@@ -4,11 +4,12 @@ package com.example.reboot.ui.screens
 
 
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -63,7 +64,6 @@ fun ErrorScreen(modifier: Modifier = Modifier) {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-
         Text(text = "Error")
     }
 }
@@ -81,12 +81,16 @@ fun ResultScreen(data: WeatherData, modifier: Modifier = Modifier) {
             .padding(20.dp, 20.dp)
     ) {
         Location()
-        TemperatureCard(dataTemp = data.current.temperature_2m.toString(), units = data.current_units.temperature_2m)
+        TemperatureCard(
+            dataTemp = data.current.temperature_2m.toString(),
+            units = data.current_units.temperature_2m,
+            data.current.weather_code,
+            data.current.time
+        )
+        Spacer(modifier = Modifier.height(12.dp))
         CurrentWeather(
             humidity = data.current.relative_humidity_2m.toString(),
-            humidityIcon = data.current.relative_humidity_2m.toString(),
             windSpeed = data.current.wind_speed_10m.toString(),
-            windSpeedIcon = data.current.wind_speed_10m.toString(),
             humidityUnit = data.current_units.relative_humidity_2m,
             windSpeedUnit = data.current_units.wind_speed_10m,
             humidityLabel = "Humidity",

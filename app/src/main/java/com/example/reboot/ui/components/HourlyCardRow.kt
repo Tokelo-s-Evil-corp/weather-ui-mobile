@@ -21,7 +21,7 @@ fun HourlyRow(
 ){
     val hourList = dateHourFilter(time)
     val tempList = todayListFilter(temperature)
-    val iconList = codeList(weatherCodes)
+    val iconList = codeList(weatherCodes,time)
 
     LazyRow(
         modifier = Modifier.fillMaxWidth()
