@@ -22,7 +22,7 @@ fun dateHourFilter(list: List<String>) : List<String>{
 fun hourlyRowIcon(weatherCode: Int, time: String): Int {
     val timeOfDate = TimeConverter(time).hour
     //check for day or night
-    return if (timeOfDate in 19..23 || timeOfDate in 0..5) {
+    return if (timeOfDate in 17..23 || timeOfDate in 0..5) {
         when (weatherCode) {
             in 0..1 -> R.drawable.icons8_full_moon_96
             in 2..3 -> R.drawable.icons8_night_96
@@ -46,6 +46,16 @@ fun hourlyRowIcon(weatherCode: Int, time: String): Int {
             in 85..86 -> R.drawable.icons8_snow_96
             else -> R.drawable.icons8_wind_96
         }
+    }
+}
+
+fun DayNightPicture(time: String): Int{
+    val timeOfDate = TimeConverter(time).hour
+
+   return when(timeOfDate) {
+        in 17..23 -> R.drawable.digital_art_character_looking_moon
+        in 0..5 -> R.drawable.digital_art_character_looking_moon
+        else -> R.drawable.anime_style_clouds
     }
 }
 

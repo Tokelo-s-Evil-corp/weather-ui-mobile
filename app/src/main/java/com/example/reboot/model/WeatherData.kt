@@ -11,6 +11,9 @@ data class Current(
     val precipitation: Double,
     val precipitation_probability: Int,
     val weather_code: Int,
+    val wind_direction_10m: Int,
+    val apparent_temperature: Double,
+    val cloud_cover: Int,
 )
 
 @Serializable
@@ -23,6 +26,9 @@ data class CurrentUnits(
     val precipitation: String,
     val precipitation_probability: String,
     val weather_code: String,
+    val wind_direction_10m: String,
+    val apparent_temperature: String,
+    val cloud_cover: String,
 )
 
 @Serializable

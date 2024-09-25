@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -31,6 +32,7 @@ import com.example.reboot.model.WeatherData
 import com.example.reboot.ui.components.CurrentWeather
 import com.example.reboot.ui.components.Location
 import com.example.reboot.ui.components.PartialBottomSheetColumn
+import com.example.reboot.ui.components.StagContainer
 import com.example.reboot.ui.components.TemperatureCard
 
 
@@ -90,44 +92,65 @@ fun ResultScreen(data: WeatherData, modifier: Modifier = Modifier) {
         skipPartiallyExpanded = false,
     )
 
-    Column(
+    LazyColumn(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Top,
         modifier = modifier
             .fillMaxSize()
-            .padding(20.dp, 20.dp)
     ) {
-        Location()
-        TemperatureCard(
-            dataTemp = data.current.temperature_2m.toString(),
-            units = data.current_units.temperature_2m,
-            data.current.weather_code,
-            data.current.time
-        )
-        Spacer(modifier = Modifier.height(12.dp))
-        CurrentWeather(
-            humidity = data.current.relative_humidity_2m.toString(),
-            windSpeed = data.current.wind_speed_10m.toString(),
-            humidityUnit = data.current_units.relative_humidity_2m,
-            windSpeedUnit = data.current_units.wind_speed_10m,
-            humidityLabel = "Humidity",
-            windSpeedLabel = "Wind Speed",
-        )
-        Spacer(modifier = Modifier.height(12.dp))
-        OutlinedButton(
-            modifier = Modifier.size(148.dp,76.dp),
-            onClick = { showBottomSheet = true },
-            shape = RoundedCornerShape(40.dp)
-        ) {
-            Text(text = "Show more")
+        item{
+            Location()
+        }
+        item {
+            TemperatureCard(
+                dataTemp = data.current.temperature_2m.toString(),
+                units = data.current_units.temperature_2m,
+                data.current.weather_code,
+                data.current.time
+            )
+            Spacer(modifier = Modifier.height(12.dp))
+        }
+        item{
+            CurrentWeather(
+                humidity = data.current.relative_humidity_2m.toString(),
+                windSpeed = data.current.wind_speed_10m.toString(),
+                humidityUnit = data.current_units.relative_humidity_2m,
+                windSpeedUnit = data.current_units.wind_speed_10m,
+                humidityLabel = "Humidity",
+                windSpeedLabel = "Wind Speed",
+            )
+            Spacer(modifier = Modifier.height(8.dp))
+        }
+
+        item{
+            Spacer(modifier = Modifier.height(8.dp))
+            StagContainer(
+                data.current.time,
+                data.current.wind_direction_10m,
+                data.current_units.wind_direction_10m,
+                data.current.cloud_cover,
+                data.current_units.cloud_cover
+            )
+        }
+
+        item {
+            OutlinedButton(
+                modifier = Modifier.size(148.dp,76.dp),
+                onClick = { showBottomSheet = true },
+                shape = RoundedCornerShape(40.dp)
+            ) {
+                Text(text = "Show more")
+            }
         }
         if (showBottomSheet) {
-            ModalBottomSheet(
-                onDismissRequest = {showBottomSheet = false },
-                sheetState = sheetState,
-                modifier = Modifier.fillMaxSize()
-            ) {
-                PartialBottomSheetColumn(data = data)
+            item {
+                ModalBottomSheet(
+                    onDismissRequest = {showBottomSheet = false },
+                    sheetState = sheetState,
+                    modifier = Modifier.fillMaxSize()
+                ) {
+                    PartialBottomSheetColumn(data = data)
+                }
             }
         }
     }
