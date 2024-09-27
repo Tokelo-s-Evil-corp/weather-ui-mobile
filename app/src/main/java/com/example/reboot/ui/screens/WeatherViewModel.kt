@@ -48,14 +48,14 @@ class WeatherViewModel : ViewModel() {
      * Call getMarsPhotos() on init so we can display status immediately.
      */
     init {
-        getMarsPhotos()
+        getWeatherData()
     }
 
     /**
      * Gets Mars photos information from the Mars API Retrofit service and updates the
      * [MarsPhoto] [List] [MutableList].
      */
-    fun getMarsPhotos() {
+    fun getWeatherData() {
         viewModelScope.launch {
             weatherUiState = WeatherUiState.Loading
             weatherUiState = try {

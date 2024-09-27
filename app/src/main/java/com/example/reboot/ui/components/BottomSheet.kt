@@ -28,6 +28,7 @@ fun PartialBottomSheetColumn(data: WeatherData){
     val time = data.hourly.time
     val timeList: List<LocalTime> = time.map { TimeConverter(it) }
     val windSpeedList = data.hourly.wind_speed_10m
+    val humidityList = data.hourly.relative_humidity_2m
 
     LazyColumn(
         modifier = Modifier
@@ -51,6 +52,14 @@ fun PartialBottomSheetColumn(data: WeatherData){
             ChartSleeve(
                 chart = { TodayWindSpeedChart(timeList,windSpeedList) },
                 title = "Wind Speed ${data.hourly_units.wind_speed_10m}"
+            )
+            Spacer(modifier = Modifier.height(space))
+        }
+
+        item {
+            ChartSleeve(
+                chart = { TodayHumidityChart(timeList,humidityList) },
+                title = "Humidity ${data.hourly_units.relative_humidity_2m}"
             )
             Spacer(modifier = Modifier.height(space))
         }
