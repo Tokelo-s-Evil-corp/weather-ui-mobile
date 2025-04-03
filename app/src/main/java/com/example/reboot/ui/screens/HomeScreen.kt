@@ -15,7 +15,9 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
@@ -63,7 +65,7 @@ fun LoadingScreen(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text(text = "Loading")
+        CircularProgressIndicator()
     }
 }
 
@@ -94,13 +96,13 @@ fun ResultScreen(data: WeatherData, modifier: Modifier = Modifier) {
 
     LazyColumn(
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Top,
+        verticalArrangement = Arrangement.Center,
         modifier = modifier
             .fillMaxSize()
     ) {
-        item{
-            Location()
-        }
+//        item{
+//            Location()
+//        }
         item {
             TemperatureCard(
                 dataTemp = data.current.temperature_2m.toString(),
@@ -137,9 +139,12 @@ fun ResultScreen(data: WeatherData, modifier: Modifier = Modifier) {
             OutlinedButton(
                 modifier = Modifier.size(148.dp,76.dp),
                 onClick = { showBottomSheet = true },
-                shape = RoundedCornerShape(40.dp)
+                shape = RoundedCornerShape(32.dp)
             ) {
-                Text(text = "Show more")
+                Text(
+                    text = "Show more",
+                    color = MaterialTheme.colorScheme.secondary
+                )
             }
         }
         if (showBottomSheet) {
