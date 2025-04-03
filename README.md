@@ -10,7 +10,7 @@
 - ***GIN***
 
 ### Description
-- This app performs a get request to a server written in Golang for weather data that is consumed from [Open-Meteo](https://open-meteo.com/).
+- This app performs a get request to a server written in Golang for weather data that is consumed from the [Open-Meteo](https://open-meteo.com/) API.
 - Makes use of charts to display data to the user.
 
 ![Untitled design](https://github.com/user-attachments/assets/adae8852-d6b5-44b8-9295-f6314b0e9f65)
