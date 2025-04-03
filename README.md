@@ -7,6 +7,7 @@
 - ***Retrofit*** to Make Requests to Golang server
 - ***ngrok*** for tunneling
 - ***Material 3*** UI library
+- ***GIN***
 
 ### Description
 - This app performs a get request to a server written in Golang for weather data that is consumed from [Open-Mateo](https://open-meteo.com/).
