@@ -1,6 +1,6 @@
 # Weather Mobile App
 
-#### This app is meant to be used with it's Golang backend from which it consumes weather data from. [Golang Server Repo Here](https://github.com/Tokelo-s-Evil-corp/golang-weather-api-bff)
+#### This app is meant to be used with it's Golang backend from which it consumes weather data. [Golang Server Repo Here](https://github.com/Tokelo-s-Evil-corp/golang-weather-api-bff)
 
 - Created with ***Kotlin***
 - ***Jetpack Compose*** for UI
