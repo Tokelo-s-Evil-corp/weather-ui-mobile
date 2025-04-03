@@ -14,6 +14,9 @@
 
 ![Untitled design](https://github.com/user-attachments/assets/adae8852-d6b5-44b8-9295-f6314b0e9f65)
 
+## Golang Server screenshot
+![server screenshot](https://github.com/Tokelo-s-Evil-corp/weather-ui-mobile/blob/main/Weather-golang-server.png)
+
 ### How to run
 - Latest version of ***Android Studio***
 - [Go compiler](go.dev)
