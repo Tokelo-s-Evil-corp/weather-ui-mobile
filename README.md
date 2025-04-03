@@ -20,7 +20,7 @@
 
 ### How to run
 - Latest version of ***Android Studio***
-- [Go compiler](go.dev)
+- Install [Go](go.dev)
 - Install [***ngrok***](https://ngrok.com/)
 - Clone and run backend server on terminal with command `go run .`; [repo here](https://github.com/Tokelo-s-Evil-corp/golang-weather-api-bff)
 - Open terminal and run ***ngrok*** against `http://localhost:8001` 
