@@ -22,10 +22,10 @@
 - Latest version of ***Android Studio***
 - Install [Go](go.dev)
 - Install [***ngrok***](https://ngrok.com/)
-- Clone and run backend server on terminal with command `go run .`; [repo here](https://github.com/Tokelo-s-Evil-corp/golang-weather-api-bff)
+- Clone and run backend server on terminal with command `go run .`. [Repo here](https://github.com/Tokelo-s-Evil-corp/golang-weather-api-bff)
 - Open terminal and run ***ngrok*** against `http://localhost:8001` 
 - Clone this repo into desired directory
-- Replace `BASE_URL` value in ***app/src/main/java/com/example/reboot/network/ApiService.kt*** with ***ngrok*** tunnel url.
+- Replace `BASE_URL` value in ***"app/src/main/java/com/example/reboot/network/ApiService.kt"*** with ***ngrok*** tunnel url.
 - Run Mobile App.
 - Enjoy!
 
